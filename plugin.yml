@@ -1,0 +1,7 @@
+name: NerdBounty
+version: 1.0
+main: com.gmail.fathersouth.NerdBounty
+authors: [FatherSouth]
+commands:
+  bounty:
+    description: /bounty

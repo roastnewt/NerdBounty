@@ -1,0 +1,69 @@
+# MySQL not implemented yet.  Defaults to SQLite, in the plugin directory.  Keep this false.
+useMySQL: false
+
+# After someone is beheaded, they cannot be beheaded again by the same player for
+# "secondsAfterSameKillerNoHeadDrop" seconds.  (Default 1800sec = 30 min)
+# This stops people from NOT redeeming a bounty to instead farm a re-spawning player for heads.
+# (since someone with a bounty will drop a head even when unarmed)
+secondsAfterSameKillerNoHeadDrop: 1800
+
+# After someone is killed by ANYONE, they cannot be beheaded again for
+# "secondsAfterDeathNoHeadDrop" seconds.  This stops people from doing the same as above,
+# but using multiple killers to farm heads.  (Default 30sec)
+# This is short by default, because it applies to EVERYONE who kills the same player, and
+# we don't want to make someone completely invulnerable to beheadings for very long.
+secondsAfterDeathNoHeadDrop: 30
+
+# Armor kills (Prot 3+ Chestplate/Leggings kills) can ignore the no-beheading cooldown, on
+# the assumption that if someone re-armors, they're probably not being spawn-killed.
+alwaysDropHeadsForArmorKills: true
+
+# This is a cooldown on the "Player1 added a bounty on Player2" announcements, to prevent chat spam.
+secondsBountyBroadcastCooldown: 60
+
+# Whether to check the bounty item against a whitelist of acceptable bounty items
+useWhitelist: true
+
+# The plugin will only allow bounties of items that are on this whitelist, if useWhitelist is true
+bountyMaterialsWhitelist:
+- GOLD_ORE
+- IRON_ORE
+- COAL_ORE
+- LAPIS_ORE
+- LAPIS_BLOCK
+- GOLD_BLOCK
+- IRON_BLOCK
+- OBSIDIAN
+- DIAMOND_ORE
+- DIAMOND_BLOCK
+- REDSTONE_ORE
+- DRAGON_EGG
+- EMERALD_ORE
+- BEACON
+- QUARTZ_ORE
+- QUARTZ_BLOCK
+- PACKED_ICE
+- COAL
+- DIAMOND
+- IRON_INGOT
+- GOLD_INGOT
+- DIAMOND_SWORD
+- DIAMOND_SPADE
+- DIAMOND_PICKAXE
+- DIAMOND_AXE
+- SULPHUR
+- DIAMOND_HELMET
+- DIAMOND_CHESTPLATE
+- DIAMOND_LEGGINGS
+- DIAMOND_BOOTS
+- GOLDEN_APPLE
+- BLAZE_ROD
+- GHAST_TEAR
+- MAGMA_CREAM
+- EMERALD
+- FIREWORK
+- QUARTZ
+- IRON_BARDING
+- GOLD_BARDING
+- DIAMOND_BARDING
+- NAME_TAG
