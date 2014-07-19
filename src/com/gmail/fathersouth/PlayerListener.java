@@ -276,7 +276,7 @@ public class PlayerListener implements Listener {
                     }
                 });
 
-                System.out.println("[NerdBounty] " + event.getPlayer().getName() + " just broke headID# " + skullID);
+                System.out.println("[NerdBounty] " + event.getPlayer().getName() + " just placed headID# " + skullID);
 
             } else {
                 System.err.println("[NerdBounty] " + event.getPlayer().getName() + " has just placed an unregistered skull!");
