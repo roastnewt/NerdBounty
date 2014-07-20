@@ -14,6 +14,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -285,6 +286,23 @@ public class PlayerListener implements Listener {
             }
 
         }
+
+    }
+
+    @EventHandler
+    public void onPlayerLogin(PlayerLoginEvent event) {
+
+        final Player player = event.getPlayer();
+
+        Bukkit.getScheduler().runTaskAsynchronously(_plugin, new BukkitRunnable() {
+            @Override
+            public void run () {
+                if (_plugin.playerIsOwedHeads(player.getUniqueId())) {
+                    player.sendMessage(ChatColor.RED + "Someone redeemed your bounty!");
+                    player.sendMessage(ChatColor.RED + "Use " + ChatColor.GREEN + "/bounty getheads " + ChatColor.RED + "to get your owed heads!");
+                }
+            }
+        });
 
     }
 

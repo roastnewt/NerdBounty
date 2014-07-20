@@ -574,6 +574,13 @@ public class NerdBounty extends JavaPlugin {
                                     + ChatColor.GREEN
                                     + "!");
 
+                            UUID bountyIssuerUUID = _dao.getBountyIssuer(bountyID);
+                            OfflinePlayer issuer = Bukkit.getOfflinePlayer(bountyIssuerUUID);
+                            if (issuer.isOnline()) {
+                                player.sendMessage(ChatColor.GREEN + player.getName() + ChatColor.RED + " redeemed your bounty!");
+                                player.sendMessage(ChatColor.RED + "Use " + ChatColor.GREEN + "/bounty getheads " + ChatColor.RED + "to get your owed heads!");
+                            }
+
                             // do inventory edits sync
                             Bukkit.getScheduler().runTask(_plugin, new BukkitRunnable() {
                                 @Override
@@ -749,6 +756,12 @@ public class NerdBounty extends JavaPlugin {
     public void setSkullAsPlaced(int skullID, Location location) {
 
         _dao.setSkullAsPlaced(skullID, location);
+
+    }
+
+    public boolean playerIsOwedHeads(UUID playerUUID) {
+
+        return (_dao.getOwedSkulls(playerUUID) != null);
 
     }
 
