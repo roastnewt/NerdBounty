@@ -213,7 +213,7 @@ public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerBreakSkull(BlockBreakEvent event) {
 
-        if (!event.isCancelled() && event.getBlock().getType() == Material.SKULL) {
+        if (!event.isCancelled() && event.getBlock().getType() == Material.SKULL && ((Skull)event.getBlock().getState()).hasOwner()) {
 
             // I guess I'm assuming a skull block only ever drops a single skull item and nothing else.
             // May conflict with other plugins- come back to this
